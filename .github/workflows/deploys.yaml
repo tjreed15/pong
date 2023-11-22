@@ -1,5 +1,5 @@
 # Vars that need to be set on github:
-#   - GODOT_VERSION: Which godot version you are using (ex: 4.3.1)
+#   - GODOT_VERSION: Which godot version you are using (ex: 4.1.3)
 #   - BUILD_PATH: Temporary directory to build to (ex: builds)
 #   - EXPORT_NAME: Name of the files to generate for each build
 #   - ITCH_GAME: Name of the Itch.io game to upload build files to
@@ -19,7 +19,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.1.3
+      image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -50,7 +50,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.1.3
+      image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
