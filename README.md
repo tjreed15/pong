@@ -2,6 +2,7 @@
 * A game to play virtual ping pong
 
 # TODO
+* Deploy to Itch.io
 * Destroy losing paddle
 * Add ability to rotate paddle
 * Add powerups
