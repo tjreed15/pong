@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbj7w6iwwgmtw"]
+
+[ext_resource type="Script" path="res://Wall.gd" id="1_kea88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56jev"]
+size = Vector2(2, 2)
+
+[node name="Wall" type="CharacterBody2D" groups=["Walls"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_kea88")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_56jev")
