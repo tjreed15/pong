@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://duah3hdq36032"]
+
+[ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
+[ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="2_1vct0"]
+[ext_resource type="PackedScene" uid="uid://b328b8ccqd1f8" path="res://core/Ball.tscn" id="3_anlmv"]
+[ext_resource type="PackedScene" uid="uid://dbj7w6iwwgmtw" path="res://core/Wall.tscn" id="4_m1snx"]
+[ext_resource type="Script" path="res://core/Player.gd" id="5_i38mm"]
+[ext_resource type="PackedScene" uid="uid://cs2a0p21ll7w7" path="res://core/Goal.tscn" id="6_vseew"]
+[ext_resource type="PackedScene" uid="uid://3vgwxajepk8e" path="res://core/Paddle.tscn" id="7_jh5lr"]
+[ext_resource type="Script" path="res://controllers/PlayerController.gd" id="8_8tvja"]
+[ext_resource type="Script" path="res://powerups/AccelerationPowerUp.gd" id="9_nkclw"]
+[ext_resource type="Script" path="res://controllers/AIController.gd" id="10_rbn2i"]
+
+[sub_resource type="Theme" id="Theme_jts08"]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("2_1vct0")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_qn1pe")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.203922, 0.643137, 1)
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme = SubResource("Theme_jts08")
+text = "0 : 0"
+horizontal_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("3_anlmv")]
+position = Vector2(640, 360)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" parent="Walls" instance=ExtResource("4_m1snx")]
+position = Vector2(640, -5)
+rotation = -1.5708
+scale = Vector2(5.312, 680)
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("4_m1snx")]
+position = Vector2(640, 725)
+rotation = -1.5708
+scale = Vector2(5.313, 680)
+
+[node name="Player1" type="Node2D" parent="."]
+position = Vector2(0, 360)
+script = ExtResource("5_i38mm")
+player_name = "Player 1"
+
+[node name="Goal" parent="Player1" instance=ExtResource("6_vseew")]
+position = Vector2(-49, 0)
+
+[node name="Paddle" parent="Player1" instance=ExtResource("7_jh5lr")]
+position = Vector2(16, 0)
+
+[node name="PlayerController" type="Node" parent="Player1/Paddle"]
+script = ExtResource("8_8tvja")
+
+[node name="AccelerationPowerUp" type="Node" parent="Player1/Paddle"]
+script = ExtResource("9_nkclw")
+
+[node name="Player2" type="Node2D" parent="."]
+position = Vector2(1280, 360)
+rotation = 3.14159
+script = ExtResource("5_i38mm")
+player_number = 2
+player_name = "Player 2"
+
+[node name="Goal" parent="Player2" instance=ExtResource("6_vseew")]
+position = Vector2(-49, 0)
+
+[node name="Paddle" parent="Player2" instance=ExtResource("7_jh5lr")]
+position = Vector2(16, 0)
+
+[node name="AIController" type="Node" parent="Player2/Paddle"]
+script = ExtResource("10_rbn2i")
+
+[connection signal="scored_on" from="Player1/Goal" to="." method="_on_player_scored_on"]
+[connection signal="scored_on" from="Player2/Goal" to="." method="_on_player_scored_on"]

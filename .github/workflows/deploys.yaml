@@ -1,6 +1,7 @@
 # Vars that need to be set on github:
 #   - GODOT_VERSION: Which godot version you are using (ex: 4.1.3)
-#   - BUILD_PATH: Temporary directory to build to (ex: builds)
+#   - GODOT_PATH: Relative path from root to where your godot project is (ex: ".", "./godot")
+#   - BUILD_PATH: Directory to build to, relative to GODOT_PATH (ex: ../build)
 #   - EXPORT_NAME: Name of the files to generate for each build
 #   - ITCH_GAME: Name of the Itch.io game to upload build files to
 #   - ITCH_USER: Name of the Itch.io user who owns the game (get this from the URL of the game)
@@ -30,13 +31,12 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p ${{ vars.BUILD_PATH }}/mac
-          godot --headless -v --export-release "macOS" ${{ vars.BUILD_PATH }}/mac/${{ vars.EXPORT_NAME }}.zip
+          godot --headless -v --path ${{ vars.GODOT_PATH }} --export-release "macOS" ${{ vars.BUILD_PATH }}/mac/${{ vars.EXPORT_NAME }}.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
           name: mac
           path: ${{ vars.BUILD_PATH }}/mac
-
       - name: Publish to itch.io
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -61,7 +61,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p ${{ vars.BUILD_PATH }}/web
-          godot --headless -v --export-release "HTML5" ${{ vars.BUILD_PATH }}/web/index.html
+          godot --headless -v --path ${{ vars.GODOT_PATH }} --export-release "HTML5" ${{ vars.BUILD_PATH }}/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:

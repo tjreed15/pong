@@ -10,13 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Pong"
-run/main_scene="res://Main.tscn"
+config/name="Power Pong"
+run/main_scene="res://scenes/main/Main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 
 [autoload]
 
-SignalBus="*res://SignalBus.gd"
+SignalBus="*res://utils/SignalBus.gd"
 
 [display]
 

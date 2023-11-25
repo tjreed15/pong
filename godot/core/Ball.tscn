@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b328b8ccqd1f8"]
 
-[ext_resource type="Script" path="res://Ball.gd" id="1_xidd7"]
-[ext_resource type="Script" path="res://BallController.gd" id="2_ojaol"]
+[ext_resource type="Script" path="res://core/Ball.gd" id="1_ea8pi"]
+[ext_resource type="Script" path="res://controllers/BallController.gd" id="2_7hbrc"]
 
 [sub_resource type="Shader" id="Shader_vtvul"]
 code = "shader_type canvas_item;
@@ -23,7 +23,7 @@ height = 40.0
 [node name="Ball" type="CharacterBody2D" groups=["Balls"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_xidd7")
+script = ExtResource("1_ea8pi")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_04cgd")
@@ -37,4 +37,4 @@ visible = false
 shape = SubResource("CapsuleShape2D_0lfiy")
 
 [node name="BallController" type="Node" parent="."]
-script = ExtResource("2_ojaol")
+script = ExtResource("2_7hbrc")

@@ -2,7 +2,7 @@ extends Node
 
 const CENTER = Vector2(1280/2.0, 720/2.0)
 const BALL_SPEED = 500
-const WINNING_SCORE = 7
+const WINNING_SCORE = 1
 const SCORE_DELIMETER = " : "
 
 @onready var scoreLabel: Label = $ScoreLabel
@@ -30,18 +30,18 @@ func update_score(scorer: Player) -> int:
 func end_game(winner: Player) -> void:
 	self.scoreLabel.text += "\n" + winner.player_name + " wins!"
 	self.ball.queue_free()
+	var exploder = PlayerExploder.new()
+	self.__get_other_player(winner).add_child(exploder)
+	
 
 func _on_player_scored_on(player: Player) -> void:
-	var scorer = null
-	if player == player1:
-		self.server = self.player1
-		scorer = self.player2
-	else:
-		self.server = self.player2
-		scorer = self.player1
+	self.server = player
+	var scorer = self.__get_other_player(player)
 	
 	if self.update_score(scorer) < WINNING_SCORE:
 		self.serve()
 	else:
 		self.end_game(scorer)
 
+func __get_other_player(player: Player):
+	return player1 if player == player2 else player2

@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://3vgwxajepk8e"]
 
-[ext_resource type="Script" path="res://Paddle.gd" id="1_vl3me"]
+[ext_resource type="Script" path="res://core/Paddle.gd" id="1_m44k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfiet"]
 size = Vector2(10, 100)
 
 [node name="Paddle" type="CharacterBody2D" groups=["Paddles"]]
-script = ExtResource("1_vl3me")
+script = ExtResource("1_m44k1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
