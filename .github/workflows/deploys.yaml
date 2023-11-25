@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: mac
-          path: ${{ vars.BUILD_PATH }}/mac
+          path: ${{ vars.GODOT_PATH }}/${{ vars.BUILD_PATH }}/mac
       - name: Publish to itch.io
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -66,7 +66,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: web
-          path: ${{ vars.BUILD_PATH }}/web
+          path: ${{ vars.GODOT_PATH }}/${{ vars.BUILD_PATH }}/web
       - name: Publish to itch.io
         uses: manleydev/butler-publish-itchio-action@master
         env:
