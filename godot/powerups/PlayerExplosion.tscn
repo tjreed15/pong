@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://wetdngwds2wm"]
+
+[ext_resource type="Script" path="res://powerups/PlayerExplosion.gd" id="1_b30m3"]
+[ext_resource type="PackedScene" uid="uid://3vgwxajepk8e" path="res://core/Paddle.tscn" id="2_2pxes"]
+
+[node name="PlayerExplosion" type="Node2D"]
+script = ExtResource("1_b30m3")
+
+[node name="Paddle1" parent="." instance=ExtResource("2_2pxes")]
+position = Vector2(5, -50)
+
+[node name="Paddle2" parent="." instance=ExtResource("2_2pxes")]
+position = Vector2(-5, -50)
+
+[node name="Paddle3" parent="." instance=ExtResource("2_2pxes")]
+position = Vector2(-5, 50)
+
+[node name="Paddle4" parent="." instance=ExtResource("2_2pxes")]
+position = Vector2(5, 50)

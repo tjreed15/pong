@@ -1,9 +1,10 @@
 extends Node
 
 const CENTER = Vector2(1280/2.0, 720/2.0)
-const BALL_SPEED = 500
-const WINNING_SCORE = 1
+const BALL_SPEED = 800
+const WINNING_SCORE = 7
 const SCORE_DELIMETER = " : "
+const END_GAME_TIME = 1.5
 
 @onready var scoreLabel: Label = $ScoreLabel
 @onready var ball: Ball = $Ball
@@ -32,6 +33,8 @@ func end_game(winner: Player) -> void:
 	self.ball.queue_free()
 	var exploder = PlayerExploder.new()
 	self.__get_other_player(winner).add_child(exploder)
+	await get_tree().create_timer(END_GAME_TIME).timeout
+	get_tree().change_scene_to_file("res://scenes/menu/Menu.tscn")
 	
 
 func _on_player_scored_on(player: Player) -> void:
