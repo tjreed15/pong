@@ -2,8 +2,6 @@
 * A game to play virtual ping pong
 
 # TODO
-* Add Menu
-* Destroy losing paddle
 * Add ability to rotate paddle
 * Add powerups
   * Freeze other player
