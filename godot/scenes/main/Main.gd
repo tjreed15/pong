@@ -1,7 +1,6 @@
 extends Node
 
-const CENTER = Vector2(1280/2.0, 720/2.0)
-const BALL_SPEED = 800
+
 const WINNING_SCORE = 7
 const SCORE_DELIMETER = " : "
 const END_GAME_TIME = 1.5
@@ -17,8 +16,9 @@ func _ready() -> void:
 	serve()
 
 func serve() -> void:
-	self.ball.position = CENTER
-	self.ball.velocity = self.server.get_normal().rotated(randf_range(-PI/4, PI/4)) * BALL_SPEED
+	self.ball.position = Constants.SCREEN_CENTER
+	self.ball.velocity = self.server.get_normal().rotated(randf_range(-PI/4, PI/4))
+	self.ball.set_speed(self.ball.initial_speed)
 
 func update_score(scorer: Player) -> int:
 	self.playerScores[str(scorer)] += 1

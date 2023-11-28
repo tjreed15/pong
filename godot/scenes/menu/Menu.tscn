@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drxbg7oejieeo"]
 
 [ext_resource type="Script" path="res://scenes/menu/Menu.gd" id="1_w83ne"]
-[ext_resource type="Texture2D" uid="uid://bd5r6l08xe868" path="res://resources/Screen Shot 2023-11-25 at 10.42.46 PM.png" id="2_qk5pe"]
+[ext_resource type="Texture2D" uid="uid://bd5r6l08xe868" path="res://resources/Logo.png" id="2_kdst2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydys4"]
 
@@ -87,7 +87,7 @@ size_flags_horizontal = 3
 
 [node name="Image" type="TextureRect" parent="MarginContainer/HSplitContainer/CenterContainer"]
 layout_mode = 2
-texture = ExtResource("2_qk5pe")
+texture = ExtResource("2_kdst2")
 
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_new_game_pressed"]

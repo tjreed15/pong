@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b328b8ccqd1f8"]
+[gd_scene load_steps=5 format=3 uid="uid://b328b8ccqd1f8"]
 
 [ext_resource type="Script" path="res://core/Ball.gd" id="1_ea8pi"]
-[ext_resource type="Script" path="res://controllers/BallController.gd" id="2_7hbrc"]
 
 [sub_resource type="Shader" id="Shader_vtvul"]
 code = "shader_type canvas_item;
@@ -35,6 +34,3 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_0lfiy")
-
-[node name="BallController" type="Node" parent="."]
-script = ExtResource("2_7hbrc")
