@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duah3hdq36032"]
+[gd_scene load_steps=14 format=3 uid="uid://duah3hdq36032"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
 [ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="2_1vct0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://controllers/PlayerController.gd" id="8_8tvja"]
 [ext_resource type="Script" path="res://powerups/AccelerationPowerUp.gd" id="9_nkclw"]
 [ext_resource type="Script" path="res://controllers/AIController.gd" id="10_rbn2i"]
+[ext_resource type="PackedScene" uid="uid://dtr83cwyjumv3" path="res://pause/PauseMenu.tscn" id="12_4ytxw"]
 
 [sub_resource type="Theme" id="Theme_jts08"]
 Label/font_sizes/font_size = 32
@@ -90,6 +91,10 @@ script = ExtResource("10_rbn2i")
 
 [node name="AccelerationPowerUp" type="Node" parent="Player2/Paddle"]
 script = ExtResource("9_nkclw")
+
+[node name="PauseMenu" parent="." instance=ExtResource("12_4ytxw")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="scored_on" from="Player1/Goal" to="." method="_on_player_scored_on"]
 [connection signal="scored_on" from="Player2/Goal" to="." method="_on_player_scored_on"]
