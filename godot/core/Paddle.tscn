@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://3vgwxajepk8e"]
+[gd_scene load_steps=5 format=3 uid="uid://3vgwxajepk8e"]
 
 [ext_resource type="Script" path="res://core/Paddle.gd" id="1_m44k1"]
+[ext_resource type="Texture2D" uid="uid://bm7tvuepysd0k" path="res://resources/light-texture.webp" id="2_xn4xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfiet"]
 size = Vector2(10, 100)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_87imq"]
+cull_mode = 2
+polygon = PackedVector2Array(5, -50, -5, -50, -5, 50, 5, 50)
 
 [node name="Paddle" type="CharacterBody2D" groups=["Paddles"]]
 script = ExtResource("1_m44k1")
@@ -20,6 +25,7 @@ offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 0.768627, 0.270588, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -27,3 +33,14 @@ shape = SubResource("RectangleShape2D_xfiet")
 
 [node name="NormalPoint" type="Node2D" parent="."]
 position = Vector2(1, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.701961, 0.537255, 0.188235, 1)
+energy = 0.25
+shadow_enabled = true
+texture = ExtResource("2_xn4xb")
+texture_scale = 5.0
+height = 10.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_87imq")

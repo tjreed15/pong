@@ -2,7 +2,8 @@
 * A game to play virtual ping pong
 
 # TODO
-* Add pause menu
+* Add particle effects
+* Improve pause menu
 * Add powerups
   * Rotate paddle
   * Freeze other player

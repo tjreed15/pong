@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://duah3hdq36032"]
+[gd_scene load_steps=15 format=3 uid="uid://duah3hdq36032"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
 [ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="2_1vct0"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://controllers/AIController.gd" id="10_rbn2i"]
 [ext_resource type="PackedScene" uid="uid://dtr83cwyjumv3" path="res://pause/PauseMenu.tscn" id="12_4ytxw"]
 
+[sub_resource type="Environment" id="Environment_qt8rg"]
+background_mode = 3
+glow_enabled = true
+
 [sub_resource type="Theme" id="Theme_jts08"]
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("2_1vct0")
@@ -24,13 +28,16 @@ script = ExtResource("1_qn1pe")
 process_mode = 3
 script = ExtResource("2_i13ct")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qt8rg")
+
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0784314, 0.203922, 0.643137, 1)
+color = Color(0.0588235, 0.87451, 0.996078, 1)
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 10
@@ -43,6 +50,13 @@ horizontal_alignment = 1
 
 [node name="Ball" parent="." instance=ExtResource("3_anlmv")]
 position = Vector2(640, 360)
+
+[node name="WhiteParticles" type="CPUParticles2D" parent="Ball"]
+amount = 30
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+scale_amount_min = 10.0
+scale_amount_max = 15.0
 
 [node name="Walls" type="Node" parent="."]
 
@@ -95,6 +109,9 @@ script = ExtResource("9_nkclw")
 [node name="PauseMenu" parent="." instance=ExtResource("12_4ytxw")]
 unique_name_in_owner = true
 visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.75, 0.75, 0.75, 1)
 
 [connection signal="scored_on" from="Player1/Goal" to="." method="_on_player_scored_on"]
 [connection signal="scored_on" from="Player2/Goal" to="." method="_on_player_scored_on"]
