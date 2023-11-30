@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b328b8ccqd1f8"]
+[gd_scene load_steps=5 format=3 uid="uid://b328b8ccqd1f8"]
 
 [ext_resource type="Script" path="res://core/Ball.gd" id="1_ea8pi"]
-[ext_resource type="Texture2D" uid="uid://bm7tvuepysd0k" path="res://resources/light-texture.webp" id="2_qfv5c"]
 
 [sub_resource type="Shader" id="Shader_vtvul"]
 code = "shader_type canvas_item;
@@ -20,10 +19,6 @@ shader = SubResource("Shader_vtvul")
 radius = 20.0
 height = 40.0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_atrsb"]
-cull_mode = 2
-polygon = PackedVector2Array(20, 0, 0, -20, -20, 0, 0, 20)
-
 [node name="Ball" type="CharacterBody2D" groups=["Balls"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -39,13 +34,3 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_0lfiy")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-enabled = false
-energy = 0.25
-shadow_enabled = true
-texture = ExtResource("2_qfv5c")
-height = 10.0
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_atrsb")

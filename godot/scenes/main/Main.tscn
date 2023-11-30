@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://duah3hdq36032"]
+[gd_scene load_steps=14 format=3 uid="uid://duah3hdq36032"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
 [ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="2_1vct0"]
@@ -13,10 +13,6 @@
 [ext_resource type="Script" path="res://controllers/AIController.gd" id="10_rbn2i"]
 [ext_resource type="PackedScene" uid="uid://dtr83cwyjumv3" path="res://pause/PauseMenu.tscn" id="12_4ytxw"]
 
-[sub_resource type="Environment" id="Environment_qt8rg"]
-background_mode = 3
-glow_enabled = true
-
 [sub_resource type="Theme" id="Theme_jts08"]
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("2_1vct0")
@@ -27,9 +23,6 @@ script = ExtResource("1_qn1pe")
 [node name="GameController" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("2_i13ct")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qt8rg")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -79,7 +72,7 @@ player_name = "Player 1"
 position = Vector2(-49, 0)
 
 [node name="Paddle" parent="Player1" instance=ExtResource("7_jh5lr")]
-position = Vector2(16, 0)
+position = Vector2(32, 0)
 
 [node name="PlayerController" type="Node" parent="Player1/Paddle"]
 script = ExtResource("8_8tvja")
@@ -98,7 +91,7 @@ player_name = "Player 2"
 position = Vector2(-49, 0)
 
 [node name="Paddle" parent="Player2" instance=ExtResource("7_jh5lr")]
-position = Vector2(16, 0)
+position = Vector2(32, 0)
 
 [node name="AIController" type="Node" parent="Player2/Paddle"]
 script = ExtResource("10_rbn2i")
