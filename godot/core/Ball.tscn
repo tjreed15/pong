@@ -19,7 +19,7 @@ shader = SubResource("Shader_vtvul")
 radius = 20.0
 height = 40.0
 
-[node name="Ball" type="CharacterBody2D" groups=["Balls"]]
+[node name="Ball" type="CharacterBody2D" groups=["Balls", "Persist"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ea8pi")

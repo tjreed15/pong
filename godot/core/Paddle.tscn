@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfiet"]
 size = Vector2(10, 100)
 
-[node name="Paddle" type="CharacterBody2D" groups=["Paddles"]]
+[node name="Paddle" type="CharacterBody2D" groups=["Paddles", "Persist"]]
 script = ExtResource("1_m44k1")
 
 [node name="ColorRect" type="ColorRect" parent="."]

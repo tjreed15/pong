@@ -1,7 +1,7 @@
 class_name AIController extends Node
 
-@export var maxSpeed: float = 1000.0
-@export var deviations: float = 3 # Number of stdevs to fall on paddle
+@export var maxSpeed: float = 500 # 1000.0
+@export var deviations: float = 1 # 3 # Number of stdevs to fall on paddle
 @export var lingerSpeed: float = maxSpeed/2.0
 
 @onready var paddle: Paddle = self.get_parent()

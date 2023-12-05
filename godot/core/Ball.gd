@@ -18,15 +18,14 @@ const MAX_SPEED: float = 3000
 func _physics_process(delta: float) -> void:
 	var collisionInfo = self.move_and_collide(self.velocity * delta)
 	if collisionInfo:
-		self.velocity = self.__get_velocity_from_collision(collisionInfo)
+		self.set_direction(self.velocity.bounce(collisionInfo.get_normal()))
 		SignalBus.ball_collided.emit(self, collisionInfo.get_collider())
 
 func set_speed(speed: float) -> void:
 	self.velocity = self.velocity.normalized() * clampf(speed, MIN_SPEED, MAX_SPEED)
 
-func __get_velocity_from_collision(collisionInfo: KinematicCollision2D) -> Vector2:
-	var vel = self.velocity.bounce(collisionInfo.get_normal())
-	var normalized_vel = Vector2(abs(vel.x), vel.y).normalized()
+func set_direction(direction: Vector2) -> void:
+	var normalized_vel = Vector2(abs(direction.x), direction.y).normalized()
 	var angle = clamp(normalized_vel.angle(), -MAX_BOUNCE_ANGLE, MAX_BOUNCE_ANGLE)
 	var vel_dir = Vector2.RIGHT.rotated(angle)
-	return Vector2(vel_dir.x * sign(vel.x), vel_dir.y) * min(vel.length(), MAX_SPEED)
+	self.velocity = Vector2(vel_dir.x * sign(direction.x), vel_dir.y) * min(direction.length(), MAX_SPEED)
