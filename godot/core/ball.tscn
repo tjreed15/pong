@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b328b8ccqd1f8"]
+
+[ext_resource type="Script" path="res://core/ball.gd" id="1_kl4h2"]
+
+[sub_resource type="Shader" id="Shader_vtvul"]
+code = "shader_type canvas_item;
+
+
+void fragment() {
+	float radius = 0.5;
+	COLOR.a = step(length(UV - vec2(radius)), radius);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04cgd"]
+shader = SubResource("Shader_vtvul")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0lfiy"]
+radius = 20.0
+height = 40.0
+
+[node name="Ball" type="CharacterBody2D" groups=["Balls", "Persist"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_kl4h2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_04cgd")
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_0lfiy")

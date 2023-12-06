@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://duah3hdq36032"]
+
+[ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
+[ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="2_1vct0"]
+[ext_resource type="Script" path="res://controllers/game_controller.gd" id="2_xxwo7"]
+[ext_resource type="PackedScene" uid="uid://b328b8ccqd1f8" path="res://core/ball.tscn" id="3_anlmv"]
+[ext_resource type="PackedScene" uid="uid://dbj7w6iwwgmtw" path="res://core/wall.tscn" id="4_m1snx"]
+[ext_resource type="Script" path="res://core/player.gd" id="6_lt5fl"]
+[ext_resource type="PackedScene" uid="uid://cs2a0p21ll7w7" path="res://core/goal.tscn" id="6_vseew"]
+[ext_resource type="PackedScene" uid="uid://3vgwxajepk8e" path="res://core/paddle.tscn" id="7_jh5lr"]
+[ext_resource type="Script" path="res://controllers/player_controller.gd" id="9_gitjg"]
+[ext_resource type="Script" path="res://powerups/acceleration_powerup.gd" id="9_nkclw"]
+[ext_resource type="Script" path="res://controllers/ai_controller.gd" id="11_cbamo"]
+[ext_resource type="PackedScene" uid="uid://dtr83cwyjumv3" path="res://pause/pause_menu.tscn" id="12_4ytxw"]
+
+[sub_resource type="Theme" id="Theme_jts08"]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("2_1vct0")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_qn1pe")
+
+[node name="GameController" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_xxwo7")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.996078, 1)
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme = SubResource("Theme_jts08")
+text = "0 : 0"
+horizontal_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("3_anlmv")]
+position = Vector2(640, 360)
+initial_speed = null
+color = null
+
+[node name="WhiteParticles" type="CPUParticles2D" parent="Ball"]
+amount = 30
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+scale_amount_min = 10.0
+scale_amount_max = 15.0
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" parent="Walls" instance=ExtResource("4_m1snx")]
+position = Vector2(640, -5)
+rotation = -1.5708
+scale = Vector2(5.312, 680)
+color = null
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("4_m1snx")]
+position = Vector2(640, 725)
+rotation = -1.5708
+scale = Vector2(5.313, 680)
+color = null
+
+[node name="Player1" type="Node2D" parent="."]
+position = Vector2(0, 360)
+script = ExtResource("6_lt5fl")
+player_name = ""
+
+[node name="Goal" parent="Player1" instance=ExtResource("6_vseew")]
+position = Vector2(-49, 0)
+
+[node name="Paddle" parent="Player1" instance=ExtResource("7_jh5lr")]
+position = Vector2(32, 0)
+color = null
+
+[node name="PlayerController" type="Node" parent="Player1/Paddle"]
+script = ExtResource("9_gitjg")
+
+[node name="AccelerationPowerUp" type="Node" parent="Player1/Paddle"]
+script = ExtResource("9_nkclw")
+
+[node name="Player2" type="Node2D" parent="."]
+position = Vector2(1280, 360)
+rotation = 3.14159
+script = ExtResource("6_lt5fl")
+player_name = ""
+
+[node name="Goal" parent="Player2" instance=ExtResource("6_vseew")]
+position = Vector2(-49, 0)
+
+[node name="Paddle" parent="Player2" instance=ExtResource("7_jh5lr")]
+position = Vector2(32, 0)
+color = null
+
+[node name="AIController" type="Node" parent="Player2/Paddle"]
+script = ExtResource("11_cbamo")
+
+[node name="AccelerationPowerUp" type="Node" parent="Player2/Paddle"]
+script = ExtResource("9_nkclw")
+
+[node name="PauseMenu" parent="." instance=ExtResource("12_4ytxw")]
+unique_name_in_owner = true
+visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.74902, 0.74902, 0.74902, 1)
+
+[connection signal="scored_on" from="Player1/Goal" to="." method="_on_player_scored_on"]
+[connection signal="scored_on" from="Player2/Goal" to="." method="_on_player_scored_on"]
