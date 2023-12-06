@@ -1,18 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc565qpwg7iv4"]
+[gd_scene load_steps=3 format=3 uid="uid://bc565qpwg7iv4"]
 
+[ext_resource type="Theme" uid="uid://1j0qm0ylmms6" path="res://resources/default_theme.tres" id="1_8yoh6"]
 [ext_resource type="Script" path="res://scenes/menu/Stats.gd" id="1_yoa68"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udktx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84dis"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51ta7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0o6j"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew4bv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80otw"]
 
 [node name="Stats" type="ColorRect"]
 anchors_preset = 15
@@ -20,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8yoh6")
 color = Color(0.0784314, 0.203922, 0.643137, 1)
 script = ExtResource("1_yoa68")
 
@@ -49,11 +39,6 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions/BackContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udktx")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_84dis")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_51ta7")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_n0o6j")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ew4bv")
 text = "Back"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MenuOptions"]
@@ -72,8 +57,6 @@ layout_mode = 2
 [node name="EasyLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/EasyContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxEmpty_80otw")
 text = "Easy"
 
 [node name="MediumContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
@@ -82,8 +65,6 @@ layout_mode = 2
 [node name="MediumLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/MediumContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxEmpty_80otw")
 text = "Medium"
 
 [node name="HardContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
@@ -92,13 +73,10 @@ layout_mode = 2
 [node name="HardLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/HardContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxEmpty_80otw")
 text = "Hard"
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
 text = "Reset Stats"
 
 [node name="RecetButtonAccept" type="AcceptDialog" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton"]

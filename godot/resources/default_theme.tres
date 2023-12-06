@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://1j0qm0ylmms6"]
+
+[ext_resource type="FontFile" uid="uid://d0h7dd1w367ol" path="res://resources/Roboto-Light.ttf" id="1_2op2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pe3v2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yr88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxc07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r37oi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlfdb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs7i5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xycjq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xdol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jc7d"]
+
+[resource]
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_2op2h")
+Button/styles/disabled = SubResource("StyleBoxEmpty_pe3v2")
+Button/styles/focus = SubResource("StyleBoxEmpty_0yr88")
+Button/styles/hover = SubResource("StyleBoxEmpty_sxc07")
+Button/styles/normal = SubResource("StyleBoxEmpty_r37oi")
+Button/styles/pressed = SubResource("StyleBoxEmpty_rlfdb")
+ItemList/font_sizes/font_size = 64
+ItemList/fonts/font = ExtResource("1_2op2h")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_xs7i5")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_xycjq")
+ItemList/styles/hovered = SubResource("StyleBoxEmpty_7xdol")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_5jc7d")
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_2op2h")

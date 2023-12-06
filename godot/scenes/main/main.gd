@@ -5,7 +5,7 @@ const SCORE_DELIMETER = " : "
 const END_GAME_TIME = 1.5
 
 
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = %ScoreLabel
 @onready var ball: Ball = $Ball
 @onready var player1: Player = $Player1
 @onready var player2: Player = $Player2
