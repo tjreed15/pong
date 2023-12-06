@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drxbg7oejieeo"]
 
 [ext_resource type="Script" path="res://scenes/menu/Menu.gd" id="1_w83ne"]
-[ext_resource type="Texture2D" uid="uid://bd5r6l08xe868" path="res://resources/Logo.png" id="2_kdst2"]
+[ext_resource type="Texture2D" uid="uid://bd5r6l08xe868" path="res://resources/logo.png" id="2_kdst2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydys4"]
 

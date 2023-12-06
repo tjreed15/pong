@@ -2,7 +2,6 @@
 * A game to play virtual ping pong
 
 # TODO
-* Fix naming conventions (camelCase vs snake_case)
 * After game, mini-menu for rematch vs return to main menu
 * Pause menu -> Save and exit
 * Conditionally show "Continue" on main menu

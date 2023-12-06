@@ -1,23 +1,26 @@
 extends ColorRect
 
+
 const SEPARATOR_STRING: String = " - "
 const MENU_SCENE = "res://scenes/menu/Menu.tscn"
 
-@onready var easyLabel: Label = %EasyLabel
-@onready var mediumLabel: Label = %MediumLabel
-@onready var hardLabel: Label = %HardLabel
+
+@onready var easy_label: Label = %EasyLabel
+@onready var medium_label: Label = %MediumLabel
+@onready var hard_label: Label = %HardLabel
+
 
 func _ready() -> void:
 	self.set_labels()
 	
 func set_labels() -> void:
-	var winLossCounts = DataStore.gameStats.winLossCount
-	var easyWinLossCount: WinLossCount = winLossCounts[Difficulty.Level.Easy]
-	var mediumWinLossCount: WinLossCount = winLossCounts[Difficulty.Level.Medium]
-	var hardWinLossCount: WinLossCount = winLossCounts[Difficulty.Level.Hard]
-	self.easyLabel.text = "Easy: " + str(easyWinLossCount.wins) + SEPARATOR_STRING + str(easyWinLossCount.losses)
-	self.mediumLabel.text = "Medium: " + str(mediumWinLossCount.wins) + SEPARATOR_STRING + str(mediumWinLossCount.losses)
-	self.hardLabel.text = "Hard: " + str(hardWinLossCount.wins) + SEPARATOR_STRING + str(hardWinLossCount.losses)
+	var win_loss_counts = DataStore.game_stats.win_loss_count
+	var easy_win_loss_count: WinLossCount = win_loss_counts[Difficulty.Level.EASY]
+	var medium_win_loss_count: WinLossCount = win_loss_counts[Difficulty.Level.MEDIUM]
+	var hard_win_loss_count: WinLossCount = win_loss_counts[Difficulty.Level.HARD]
+	self.easy_label.text = "Easy: " + str(easy_win_loss_count.wins) + SEPARATOR_STRING + str(easy_win_loss_count.losses)
+	self.medium_label.text = "Medium: " + str(medium_win_loss_count.wins) + SEPARATOR_STRING + str(medium_win_loss_count.losses)
+	self.hard_label.text = "Hard: " + str(hard_win_loss_count.wins) + SEPARATOR_STRING + str(hard_win_loss_count.losses)
 
 
 func _on_back_button_pressed() -> void:

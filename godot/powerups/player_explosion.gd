@@ -24,10 +24,10 @@ var timer: Timer
 		size = new_value
 		if not is_node_ready():
 			await ready
-		self.paddle1.colorRect.size = new_value / 2
-		self.paddle2.colorRect.size = new_value / 2
-		self.paddle3.colorRect.size = new_value / 2
-		self.paddle4.colorRect.size = new_value / 2
+		self.paddle1.color_rect.size = new_value / 2
+		self.paddle2.color_rect.size = new_value / 2
+		self.paddle3.color_rect.size = new_value / 2
+		self.paddle4.color_rect.size = new_value / 2
 
 func _ready() -> void:
 	self.timer = Timer.new()

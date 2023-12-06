@@ -1,17 +1,18 @@
 class_name Paddle extends CharacterBody2D
 
+
 signal hit_ball(ball: Ball)
 
-@onready var colorRect: ColorRect = $ColorRect
-@onready var collisionShape: CollisionShape2D = $CollisionShape2D
-@onready var normalPoint: Node2D = $NormalPoint
+
+@onready var color_rect: ColorRect = $ColorRect
+@onready var normal_point: Node2D = $NormalPoint
 
 @export var color: Color = Color.WHITE :
 	set(new_value):
 		color = new_value
 		if not is_node_ready():
 			await ready
-		self.colorRect.color = new_value
+		self.color_rect.color = new_value
 
 
 func _ready() -> void:
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 
 func get_normal() -> Vector2:
-	return (self.normalPoint.global_position - self.global_position).normalized()
+	return (self.normal_point.global_position - self.global_position).normalized()
 
 
 func _on_area_entered(ball: Ball, with: Object) -> void:
