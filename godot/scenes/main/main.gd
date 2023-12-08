@@ -6,6 +6,7 @@ const END_GAME_TIME = 1.5
 
 
 @onready var score_label: Label = %ScoreLabel
+@onready var game_over: GameOver = %GameOver
 @onready var ball: Ball = $Ball
 @onready var player1: Player = $Player1
 @onready var player2: Player = $Player2
@@ -46,13 +47,13 @@ func update_score() -> void:
 
 
 func end_game(winner: Player) -> void:
-	DataStore.tally_game(winner == self.player1)	
+	DataStore.tally_game(winner == self.player1)
 	self.score_label.text += "\n" + winner.player_name + " wins!"
 	self.ball.queue_free()
 	var exploder = PlayerExploder.new()
 	self.__get_other_player(winner).add_child(exploder)
 	await get_tree().create_timer(END_GAME_TIME).timeout
-	get_tree().change_scene_to_file("res://scenes/menu/Menu.tscn")
+	self.game_over.show()
 
 
 func _on_player_scored_on(player: Player) -> void:
@@ -79,3 +80,12 @@ func __init_score() -> void:
 	self.player_scores[str(player1)] = DataStore.game.player1_score
 	self.player_scores[str(player2)] = DataStore.game.player2_score
 	self.update_score()
+
+
+func _on_game_over_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu/Menu.tscn")
+
+
+func _on_game_over_rematch_pressed() -> void:
+	DataStore.game = Game.new()
+	get_tree().change_scene_to_file("res://scenes/main/Main.tscn")

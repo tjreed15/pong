@@ -10,8 +10,8 @@ func _process(_delta: float) -> void:
 
 
 func toggle_pause() -> void:
-		get_tree().paused = not get_tree().paused
-		self.visible = not self.visible
+	get_tree().paused = not get_tree().paused
+	self.visible = not self.visible
 
 
 func _on_save_and_exit_button_pressed() -> void:

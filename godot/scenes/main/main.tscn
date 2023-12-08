@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duah3hdq36032"]
+[gd_scene load_steps=13 format=3 uid="uid://duah3hdq36032"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
 [ext_resource type="PackedScene" uid="uid://b328b8ccqd1f8" path="res://core/ball.tscn" id="3_anlmv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://controllers/ai_controller.gd" id="11_cbamo"]
 [ext_resource type="PackedScene" uid="uid://dtr83cwyjumv3" path="res://pause/pause_menu.tscn" id="12_4ytxw"]
 [ext_resource type="Theme" uid="uid://1j0qm0ylmms6" path="res://resources/default_theme.tres" id="12_6tq4j"]
+[ext_resource type="PackedScene" uid="uid://dvppp66x8c607" path="res://game_over/game_over.tscn" id="12_gtfi0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qn1pe")
@@ -101,8 +102,11 @@ text = "0 : 0"
 horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_4ytxw")]
-unique_name_in_owner = true
 process_mode = 3
+visible = false
+
+[node name="GameOver" parent="." instance=ExtResource("12_gtfi0")]
+unique_name_in_owner = true
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -111,3 +115,5 @@ color = Color(0.74902, 0.74902, 0.74902, 1)
 [connection signal="scored_on" from="Player1/Goal" to="." method="_on_player_scored_on"]
 [connection signal="scored_on" from="Player2/Goal" to="." method="_on_player_scored_on"]
 [connection signal="save_and_exit_pressed" from="PauseMenu" to="." method="_on_pause_menu_save_and_exit_pressed"]
+[connection signal="main_menu_pressed" from="GameOver" to="." method="_on_game_over_main_menu_pressed"]
+[connection signal="rematch_pressed" from="GameOver" to="." method="_on_game_over_rematch_pressed"]

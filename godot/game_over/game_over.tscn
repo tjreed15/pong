@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtr83cwyjumv3"]
+[gd_scene load_steps=3 format=3 uid="uid://dvppp66x8c607"]
 
-[ext_resource type="Theme" uid="uid://1j0qm0ylmms6" path="res://resources/default_theme.tres" id="1_hrn0q"]
-[ext_resource type="Script" path="res://pause/pause_menu.gd" id="2_ww0tk"]
+[ext_resource type="Theme" uid="uid://1j0qm0ylmms6" path="res://resources/default_theme.tres" id="1_2838f"]
+[ext_resource type="Script" path="res://game_over/game_over.gd" id="2_febhj"]
 
-[node name="PauseMenu" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_hrn0q")
-script = ExtResource("2_ww0tk")
+theme = ExtResource("1_2838f")
+script = ExtResource("2_febhj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,23 +37,23 @@ theme_override_constants/margin_bottom = 120
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
 
-[node name="PausedLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "Paused"
+text = "Game Over!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SaveAndExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="RematchButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save And Exit"
+text = "Rematch"
 
-[node name="ContinueButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Continue"
+text = "Main Menu"
 
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/SaveAndExitButton" to="." method="_on_save_and_exit_button_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/RematchButton" to="." method="_on_rematch_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
