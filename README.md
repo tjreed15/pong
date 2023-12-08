@@ -3,8 +3,6 @@
 
 # TODO
 * After game, mini-menu for rematch vs return to main menu
-* Pause menu -> Save and exit
-* Conditionally show "Continue" on main menu
 * Add tutorial
 * Add HUD for powerup info / score / Game
 * Add powerups

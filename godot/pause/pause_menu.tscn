@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtr83cwyjumv3"]
+[gd_scene load_steps=3 format=3 uid="uid://dtr83cwyjumv3"]
 
 [ext_resource type="Theme" uid="uid://1j0qm0ylmms6" path="res://resources/default_theme.tres" id="1_hrn0q"]
+[ext_resource type="Script" path="res://pause/pause_menu.gd" id="2_ww0tk"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hrn0q")
+script = ExtResource("2_ww0tk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -42,8 +44,16 @@ text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Press \"Escape\" to Continue"
-horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="SaveAndExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save And Exit"
+
+[node name="ContinueButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/SaveAndExitButton" to="." method="_on_save_and_exit_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

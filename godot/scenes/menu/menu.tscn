@@ -44,6 +44,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Continue" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
