@@ -2,7 +2,6 @@
 * A game to play virtual ping pong
 
 # TODO
-* Disallow pause during game over
 * Add tutorial
 * Add HUD for powerup info / score / Game
 * Add powerups
