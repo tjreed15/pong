@@ -6,6 +6,7 @@ const END_GAME_TIME = 1.5
 
 
 @onready var score_label: Label = %ScoreLabel
+@onready var pause_menu: PauseMenu = %PauseMenu
 @onready var game_over: GameOver = %GameOver
 @onready var ball: Ball = $Ball
 @onready var player1: Player = $Player1
@@ -26,6 +27,10 @@ func _ready() -> void:
 	self.default_ball_speed = (difficulty+3) * 200
 	self.serve()
 
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		self.pause_menu.toggle_pause()
 
 func serve() -> void:
 	self.ball.position = Constants.SCREEN_CENTER

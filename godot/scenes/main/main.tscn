@@ -102,11 +102,13 @@ text = "0 : 0"
 horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_4ytxw")]
+unique_name_in_owner = true
 process_mode = 3
 visible = false
 
 [node name="GameOver" parent="." instance=ExtResource("12_gtfi0")]
 unique_name_in_owner = true
+process_mode = 3
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

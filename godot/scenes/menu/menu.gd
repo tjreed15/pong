@@ -1,11 +1,6 @@
 extends ColorRect
 
 
-const MAIN_SCENE = "res://scenes/main/Main.tscn"
-const STATS_SCENE = "res://scenes/menu/Stats.tscn"
-const SETTINGS_SCENE = "res://scenes/menu/Settings.tscn"
-
-
 @onready var continue_button: Button = %Continue
 
 
@@ -15,17 +10,17 @@ func _ready() -> void:
 
 
 func _on_continue_pressed() -> void:
-	get_tree().change_scene_to_file(MAIN_SCENE)
+	SceneChanger.change_scene(SceneChanger.Scene.MAIN)
 
 
 func _on_new_game_pressed() -> void:
 	DataStore.game = Game.new()
-	get_tree().change_scene_to_file(MAIN_SCENE)
+	SceneChanger.change_scene(SceneChanger.Scene.MAIN)
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file(SETTINGS_SCENE)
+	SceneChanger.change_scene(SceneChanger.Scene.SETTINGS)
 
 
 func _on_stats_pressed() -> void:
-	get_tree().change_scene_to_file(STATS_SCENE)
+	SceneChanger.change_scene(SceneChanger.Scene.STATS)
