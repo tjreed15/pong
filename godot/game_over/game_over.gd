@@ -5,9 +5,9 @@ signal rematch_pressed()
 signal main_menu_pressed()
 
 
-func game_over() -> void:
+func end_game() -> void:
 	get_tree().paused = true
-	self.visible = not self.visible
+	self.visible = true
 
 
 func _on_rematch_button_pressed() -> void:

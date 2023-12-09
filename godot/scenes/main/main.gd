@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		self.pause_menu.toggle_pause()
+		self.pause_menu.pause()
 
 func serve() -> void:
 	self.ball.position = Constants.SCREEN_CENTER
@@ -58,7 +58,7 @@ func end_game(winner: Player) -> void:
 	var exploder = PlayerExploder.new()
 	self.__get_other_player(winner).add_child(exploder)
 	await get_tree().create_timer(END_GAME_TIME).timeout
-	self.game_over.show()
+	self.game_over.end_game()
 
 
 func _on_player_scored_on(player: Player) -> void:
@@ -78,7 +78,7 @@ func _on_pause_menu_save_and_exit_pressed() -> void:
 	var player1_score = self.player_scores[str(self.player1)]
 	var player2_score = self.player_scores[str(self.player2)]
 	DataStore.save_game(player1_score, player2_score)
-	get_tree().change_scene_to_file("res://scenes/menu/Menu.tscn")
+	SceneChanger.change_scene(SceneChanger.Scene.MENU)
 
 
 func __init_score() -> void:
@@ -88,9 +88,9 @@ func __init_score() -> void:
 
 
 func _on_game_over_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu/Menu.tscn")
+	SceneChanger.change_scene(SceneChanger.Scene.MENU)
 
 
 func _on_game_over_rematch_pressed() -> void:
 	DataStore.game = Game.new()
-	get_tree().change_scene_to_file("res://scenes/main/Main.tscn")
+	SceneChanger.change_scene(SceneChanger.Scene.MAIN)
