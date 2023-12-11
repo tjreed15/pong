@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs2a0p21ll7w7"]
+[gd_scene load_steps=9 format=3 uid="uid://cs2a0p21ll7w7"]
 
 [ext_resource type="Script" path="res://core/goal.gd" id="1_a23u8"]
+[ext_resource type="AudioStream" uid="uid://3k5lrgdb15n8" path="res://addons/kenney_impact_sounds/impact_mining_000.ogg" id="2_yxc7a"]
+[ext_resource type="AudioStream" uid="uid://cpnjfr5jhcd5" path="res://addons/kenney_impact_sounds/impact_mining_001.ogg" id="3_7iksh"]
+[ext_resource type="AudioStream" uid="uid://dm6v3r16sy5vv" path="res://addons/kenney_impact_sounds/impact_mining_002.ogg" id="4_ywe5p"]
+[ext_resource type="AudioStream" uid="uid://c0a12gq582id7" path="res://addons/kenney_impact_sounds/impact_mining_003.ogg" id="5_anhrp"]
+[ext_resource type="AudioStream" uid="uid://b6xxbn3guo5h0" path="res://addons/kenney_impact_sounds/impact_mining_004.ogg" id="6_cdug5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osi5g"]
 size = Vector2(20, 1000)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ahuw8"]
+streams_count = 5
+stream_0/stream = ExtResource("2_yxc7a")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_7iksh")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_ywe5p")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_anhrp")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_cdug5")
+stream_4/weight = 1.0
 
 [node name="PlayerGoal" type="Area2D" groups=["Goals"]]
 position = Vector2(-100, 0)
@@ -11,5 +29,8 @@ script = ExtResource("1_a23u8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osi5g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ahuw8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

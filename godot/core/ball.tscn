@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b328b8ccqd1f8"]
+[gd_scene load_steps=11 format=3 uid="uid://b328b8ccqd1f8"]
 
 [ext_resource type="Script" path="res://core/ball.gd" id="1_kl4h2"]
+[ext_resource type="AudioStream" uid="uid://bxpaubu88ua7p" path="res://addons/kenney_impact_sounds/impact_generic_light_000.ogg" id="2_738fs"]
+[ext_resource type="AudioStream" uid="uid://clwa8y4j6q03e" path="res://addons/kenney_impact_sounds/impact_generic_light_001.ogg" id="3_8lynr"]
+[ext_resource type="AudioStream" uid="uid://dc3tt80qemdrh" path="res://addons/kenney_impact_sounds/impact_generic_light_002.ogg" id="4_wm0dp"]
+[ext_resource type="AudioStream" uid="uid://bqd8mw28awyxg" path="res://addons/kenney_impact_sounds/impact_generic_light_003.ogg" id="5_mfo72"]
+[ext_resource type="AudioStream" uid="uid://dkwcuc8i4d5pj" path="res://addons/kenney_impact_sounds/impact_generic_light_004.ogg" id="6_6ikj5"]
 
 [sub_resource type="Shader" id="Shader_vtvul"]
 code = "shader_type canvas_item;
@@ -19,6 +24,19 @@ shader = SubResource("Shader_vtvul")
 radius = 20.0
 height = 40.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_05vgp"]
+streams_count = 5
+stream_0/stream = ExtResource("2_738fs")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_8lynr")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_wm0dp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_mfo72")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_6ikj5")
+stream_4/weight = 1.0
+
 [node name="Ball" type="CharacterBody2D" groups=["Balls", "Persist"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -34,3 +52,6 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_0lfiy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_05vgp")

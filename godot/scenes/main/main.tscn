@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://duah3hdq36032"]
 
-[ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_qn1pe"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_qd10e"]
 [ext_resource type="PackedScene" uid="uid://b328b8ccqd1f8" path="res://core/ball.tscn" id="3_anlmv"]
 [ext_resource type="PackedScene" uid="uid://dbj7w6iwwgmtw" path="res://core/wall.tscn" id="4_m1snx"]
 [ext_resource type="Script" path="res://core/player.gd" id="6_lt5fl"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dvppp66x8c607" path="res://game_over/game_over.tscn" id="12_gtfi0"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_qn1pe")
+script = ExtResource("1_qd10e")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15

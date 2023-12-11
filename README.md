@@ -3,6 +3,8 @@
 
 # TODO
 * Audio (sound+effects, ability to en/disable)
+  * Button clicks
+  * Background music
 * Color scheme / themes
 * Customized controls
 * Multiplayer + online
