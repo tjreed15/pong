@@ -40,7 +40,7 @@ layout_mode = 2
 [node name="PausedLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "Paused"
+text = "PAUSE_MENU_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -49,11 +49,11 @@ layout_mode = 2
 
 [node name="SaveAndExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save And Exit"
+text = "PAUSE_MENU_SAVE"
 
 [node name="ContinueButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Continue"
+text = "PAUSE_MENU_CONTINUE"
 
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/SaveAndExitButton" to="." method="_on_save_and_exit_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

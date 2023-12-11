@@ -52,13 +52,13 @@ func update_score() -> void:
 
 
 func end_game(winner: Player) -> void:
-	DataStore.tally_game(winner == self.player1)
-	self.score_label.text += "\n" + winner.player_name + " wins!"
+	var player_wins = winner == self.player1
+	DataStore.tally_game(player_wins)
 	self.ball.queue_free()
 	var exploder = PlayerExploder.new()
 	self.__get_other_player(winner).add_child(exploder)
 	await get_tree().create_timer(END_GAME_TIME).timeout
-	self.game_over.end_game()
+	self.game_over.end_game(player_wins)
 
 
 func _on_player_scored_on(player: Player) -> void:

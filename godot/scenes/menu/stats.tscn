@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions/BackContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Back"
+text = "STATS_BACK"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
@@ -57,7 +57,7 @@ layout_mode = 2
 [node name="EasyLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/EasyContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Easy"
+text = "GLOBAL_EASY_LABEL"
 
 [node name="MediumContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -65,7 +65,7 @@ layout_mode = 2
 [node name="MediumLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/MediumContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Medium"
+text = "GLOBAL_MEDIUM_LABEL"
 
 [node name="HardContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -73,18 +73,18 @@ layout_mode = 2
 [node name="HardLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/HardContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Hard"
+text = "GLOBAL_HARD_LABEL"
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Reset Stats"
+text = "STATS_RESET_STATS"
 
-[node name="RecetButtonAccept" type="AcceptDialog" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton"]
+[node name="ResetButtonAccept" type="AcceptDialog" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton"]
 unique_name_in_owner = true
 initial_position = 5
-ok_button_text = "Yes"
-dialog_text = "Are you sure?"
+ok_button_text = "STATS_RESET_YES"
+dialog_text = "STATS_RESET_CONFIRMATION"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuOptions/BackContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="confirmed" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton/RecetButtonAccept" to="." method="_on_recet_button_accept_confirmed"]
+[connection signal="confirmed" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/ResetButton/ResetButtonAccept" to="." method="_on_recet_button_accept_confirmed"]

@@ -5,9 +5,17 @@ signal rematch_pressed()
 signal main_menu_pressed()
 
 
-func end_game() -> void:
+@onready var win_label: Label = %WinLabel
+@onready var lose_label: Label = %LoseLabel
+
+
+func end_game(win: bool) -> void:
 	get_tree().paused = true
 	self.visible = true
+	if win:
+		self.win_label.show()
+	else:
+		self.lose_label.show()
 
 
 func _on_rematch_button_pressed() -> void:

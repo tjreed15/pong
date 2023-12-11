@@ -1,0 +1,25 @@
+keys,en,es
+GLOBAL_EASY_LABEL,Easy,Fácil
+GLOBAL_MEDIUM_LABEL,Medium,Medio
+GLOBAL_HARD_LABEL,Hard,Duro
+MENU_TITLE,Power Pong,Power Pong
+MENU_CONTINUE,Continue,Continuar
+MENU_NEW_GAME,New Game,Nueva Juego
+MENU_OPTIONS,Options,Opciones
+MENU_STATS,Stats,Estadísticas
+SETTINGS_BACK,Back,Atrás
+SETTINGS_LANGUAGE,Language,Idioma
+SETTINGS_DIFFICULTY,Difficulty,Dificultad
+SETTINGS_WINNING_SCORE,Winning Score,Puntuación ganadora
+STATS_BACK,Back,Atrás
+STATS_RESET_STATS,Reset Stats,Restablecer estadísticas
+STATS_RESET_CONFIRMATION,Are you sure?,¿Estas seguro?
+STATS_RESET_YES,Yes,Sí
+PAUSE_MENU_TITLE,Paused,En pausa
+PAUSE_MENU_SAVE,Save and Exit,Guardar y Salir
+PAUSE_MENU_CONTINUE,Continue,Continuar
+GAME_OVER_TITLE,Game Over!,¡Juego Terminado!
+GAME_OVER_WIN,You Win!,¡Tú ganas!
+GAME_OVER_LOSE,You Lose!,¡Tú pierdes!
+GAME_OVER_REMATCH,Rematch,Revancha
+GAME_OVER_MAIN_MENU,Main Menu,Menú Principal
