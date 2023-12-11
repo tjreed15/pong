@@ -47,7 +47,8 @@ rotate={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation")
+locale/translations=PackedStringArray("res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation", "res://resources/power-pong-translations.he.translation")
+locale/test="he"
 
 [physics]
 

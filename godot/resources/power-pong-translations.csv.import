@@ -6,10 +6,10 @@ uid="uid://b2ed0jp3iw1t4"
 
 [deps]
 
-files=["res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation"]
+files=["res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation", "res://resources/power-pong-translations.he.translation"]
 
 source_file="res://resources/power-pong-translations.csv"
-dest_files=["res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation"]
+dest_files=["res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation", "res://resources/power-pong-translations.he.translation"]
 
 [params]
 
