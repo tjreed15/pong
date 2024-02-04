@@ -6,6 +6,8 @@ const SAVE_FILE: String = "user://gloabl_settings.res"
 
 @export var difficulty_level: Difficulty.Level = Difficulty.Level.EASY
 @export var winning_score: int = 7
+@export var sfx_enabled: bool = true
+@export var background_music_enabled: bool = true
 
 
 static func load_settings() -> GlobalSettings:

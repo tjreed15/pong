@@ -11,6 +11,8 @@ MENU_STATS,Stats,Estadísticas,סטטיסטיקות
 SETTINGS_LANGUAGE,Language,Idioma,שפה
 SETTINGS_DIFFICULTY,Difficulty,Dificultad,קושי
 SETTINGS_WINNING_SCORE,Winning Score,Puntuación Ganadora,ניקוד מנצח
+SETTINGS_SOUND_EFFECTS_ENABLED,Sound Effects,Efectos de sonido,אפקטים קוליים
+SETTINGS_BACKGROUND_MUSIC_ENABLED,Background Music,Música de fondo,מוזיקת ​​רקע
 STATS_RESET_STATS,Reset Stats,Restablecer Estadísticas,אפס סטטיסטיקות
 STATS_RESET_CONFIRMATION,Are you sure?,¿Estas seguro?,האם אתה בטוח?
 STATS_RESET_YES,Yes,Sí,כן

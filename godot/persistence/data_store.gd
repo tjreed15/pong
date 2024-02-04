@@ -4,7 +4,6 @@ extends Node
 @onready var game_stats: GameStats = GameStats.load_game_stats()
 @onready var global_settings: GlobalSettings = GlobalSettings.load_settings()
 
-
 func save_game(player1_score: int, player2_score: int) -> Error:
 	self.game = Game.new()
 	game.player1_score = player1_score
@@ -39,4 +38,12 @@ func set_difficulty(level: Difficulty.Level) -> Error:
 
 func set_winning_score(score: int) -> Error:
 	self.global_settings.winning_score = score
+	return self.global_settings.save_settings()
+
+func set_sfx_enabled(sfx_enabled: bool) -> Error:
+	self.global_settings.sfx_enabled = sfx_enabled
+	return self.global_settings.save_settings()
+	
+func set_background_music_enabled(background_music_enabled: bool) -> Error:
+	self.global_settings.background_music_enabled = background_music_enabled
 	return self.global_settings.save_settings()

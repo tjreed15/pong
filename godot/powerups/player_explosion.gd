@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var paddle1: Paddle = $Paddle1
 @onready var paddle2: Paddle = $Paddle2
 @onready var paddle3: Paddle = $Paddle3
@@ -31,7 +31,8 @@ var timer: Timer
 		self.paddle4.color_rect.size = new_value / 2
 
 func _ready() -> void:
-	self.audio_player.play()
+	if DataStore.global_settings.sfx_enabled:
+		self.audio_player.play()
 	self.timer = Timer.new()
 	add_child(self.timer)
 	self.timer.one_shot = true

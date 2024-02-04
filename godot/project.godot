@@ -21,6 +21,9 @@ DataStore="*res://persistence/data_store.gd"
 SceneChanger="*res://utils/scene_changer.gd"
 Constants="*res://utils/constants.gd"
 Difficulty="*res://persistence/difficulty.gd"
+UiAudioPlayer="*res://audio/ui_audio_player.gd"
+GlobalSignalEmitter="*res://utils/global_signal_emitter.gd"
+InitializationScript="*res://initialization_script.gd"
 
 [display]
 
@@ -48,7 +51,6 @@ rotate={
 [internationalization]
 
 locale/translations=PackedStringArray("res://resources/power-pong-translations.en.translation", "res://resources/power-pong-translations.es.translation", "res://resources/power-pong-translations.he.translation")
-locale/test="he"
 
 [physics]
 

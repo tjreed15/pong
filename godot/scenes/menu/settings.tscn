@@ -91,7 +91,33 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="SoundEffectsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/SoundEffectsContainer"]
+layout_mode = 2
+text = "SETTINGS_SOUND_EFFECTS_ENABLED"
+
+[node name="SoundEffectsCheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/SoundEffectsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackgroundMusicContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackgroundMusicLabel" type="Label" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/BackgroundMusicContainer"]
+layout_mode = 2
+text = "SETTINGS_BACKGROUND_MUSIC_ENABLED"
+
+[node name="BackgroundMusicCheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/BackgroundMusicContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuOptions/BackContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/LanguageContainer/LanguageList" to="." method="_on_language_list_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/DifficultyContainer/DifficultyList" to="." method="_on_difficulty_list_item_selected"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/WinningScoreContainer/WinningScore" to="." method="_on_winning_score_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/SoundEffectsContainer/SoundEffectsCheckButton" to="." method="_on_sound_effects_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MenuOptions/MarginContainer/VBoxContainer/BackgroundMusicContainer/BackgroundMusicCheckButton" to="." method="_on_background_music_check_button_toggled"]

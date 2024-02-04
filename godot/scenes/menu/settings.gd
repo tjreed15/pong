@@ -7,6 +7,8 @@ const MENU_SCENE = "res://scenes/menu/Menu.tscn"
 @onready var language_list: ItemList = %LanguageList
 @onready var difficulty_list: ItemList = %DifficultyList
 @onready var winning_score: SpinBox = %WinningScore
+@onready var sound_effects_check_button: CheckButton = %SoundEffectsCheckButton
+@onready var background_music_check_button: CheckButton = %BackgroundMusicCheckButton
 
 
 func _ready() -> void:
@@ -25,15 +27,24 @@ func _on_language_list_item_selected(index: int) -> void:
 func _on_difficulty_list_item_selected(index: int) -> void:
 	DataStore.set_difficulty(index)
 
-
 func _on_winning_score_value_changed(value: float) -> void:
 	DataStore.set_winning_score(int(value))
+
+func _on_sound_effects_check_button_toggled(button_pressed: bool) -> void:
+	DataStore.set_sfx_enabled(button_pressed)
+
+func _on_background_music_check_button_toggled(button_pressed: bool) -> void:
+	if button_pressed != DataStore.global_settings.background_music_enabled:
+		UiAudioPlayer.toggle_music()
+		DataStore.set_background_music_enabled(button_pressed)
 
 
 func __initialize_settings() -> void:
 	self.__initialize_language()
 	self.__initialize_difficulty()
 	self.__initialize_winning_score()
+	self.__initialize_sound_effects()
+	self.__initialize_background_music()
 
 
 func __initialize_language() -> void:
@@ -51,3 +62,11 @@ func __initialize_difficulty() -> void:
 
 func __initialize_winning_score() -> void:
 	self.winning_score.value = DataStore.global_settings.winning_score
+
+
+func __initialize_sound_effects() -> void:
+	self.sound_effects_check_button.button_pressed = DataStore.global_settings.sfx_enabled
+
+func __initialize_background_music() -> void:
+	self.background_music_check_button.button_pressed = DataStore.global_settings.background_music_enabled
+
